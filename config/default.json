@@ -1,0 +1,35 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "6a4b980db365e0ca8f1f2ca647cf7c51ee3dfe43eabc420d9ddf5401d11ec86d786e36739a97e00ec19a5e5822b1f55bb42762397ead6813a8730e5c2ea75bb78f89a011670f52e3e36b525e5eda0df70533988665a1af8d8507f6ff715da026e85dfe7d0514f13428300ae9bb14350728ad2614281b74338b201f061cbfe3fa597ca17cef71a9dc069b2503f9bcb7777fb8b9d44ff053a58774972ffe935220c03372a71d6bbc54a7b648d94166ab94a17442aeff9a3b1cadda81b1a0b56dca33be9494ec4d51f90539bb6471c6444a0dccf148fcfa0ac3329fd5e7d076b9bbb115a40358ed29d90d9519c98e9c8272fb123939cb1f124f9f19d6234313ec9b",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "service": "users",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "postgres": "postgres://postgres:@localhost:5432/silent_auction"
+}
